@@ -725,20 +725,20 @@ function toggleCellColor(td) {
    // ------------------------------
 // 保存ボタン処理（確定後にのみ出現）
 // ------------------------------
-function saveBoard() {
+function saveBoard3() {
   const cells = Array.from(document.querySelectorAll("#bingo td"));
   // 保存
   const boardData = cells.map(td => td.querySelector(".cell-text")?.textContent.trim() || "");
 
-  localStorage.setItem("bingoBoard", JSON.stringify(boardData));
+  localStorage.setItem("bingoBoard3", JSON.stringify(boardData));
   alert("保存しました！");
 }
 
 // ------------------------------
 // 読込ボタン処理
 // ------------------------------
-function loadBoard() {
-  const saved = localStorage.getItem("bingoBoard");
+function loadBoard3() {
+  const saved = localStorage.getItem("bingoBoard3");
   if (!saved) {
     alert("保存データがありません");
     return;
