@@ -170,7 +170,7 @@
     <button id="random-btn" onclick="randomFill()">ランダム配置</button>
     <button id="reset-btn" onclick="resetBoard()">リセット</button>
     <button id="confirm-btn">確定</button>
-    <button id="load-btn" onclick="loadBoard()">読込</button>
+    <button id="load-btn" onclick="loadBoard3()">読込</button>
   </div>
 
   <script>
@@ -577,7 +577,7 @@ function confirmBoard() {
     const saveBtn = document.createElement("button");
     saveBtn.id = "save-btn";
     saveBtn.textContent = "保存";
-    saveBtn.addEventListener("click", saveBoard);
+    saveBtn.addEventListener("click", saveBoard3);
     buttonContainer.appendChild(saveBtn);
   }
 
@@ -685,7 +685,7 @@ function undoConfirm() {
     const btn = document.createElement("button");
     btn.id = "load-btn";
     btn.textContent = "読込";
-    btn.onclick = loadBoard;
+    btn.onclick = loadBoard3;
     buttonContainer.appendChild(btn);
   }
 
