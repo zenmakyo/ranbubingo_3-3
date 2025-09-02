@@ -483,7 +483,31 @@ function showAllSuggestions(suggestionBox) {
       });
       usedWords.clear();
     }
-    
+
+    const buttonContainer = document.querySelector(".button-container");
+let confirmed = false;
+
+// セルクリックイベントを管理するマップ
+const cellClickHandlers = new Map();
+
+function enableCellClick(td) {
+  if (cellClickHandlers.has(td)) return; // 二重登録防止
+  const handler = () => toggleCellColor(td);
+  td.addEventListener("click", handler);
+  cellClickHandlers.set(td, handler);
+  td.style.cursor = "pointer";
+}
+
+function disableCellClick(td) {
+  const handler = cellClickHandlers.get(td);
+  if (handler) {
+    td.removeEventListener("click", handler);
+    cellClickHandlers.delete(td);
+  }
+  td.style.cursor = "default";
+}
+
+// 共通の確定処理
 function confirmBoard() {
   const nameInput = document.getElementById("player-name");
   const cells = Array.from(document.querySelectorAll("#bingo td"));
