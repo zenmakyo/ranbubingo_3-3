@@ -1,0 +1,223 @@
+body {
+  background-color: #98AB6F;
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size: 3.5rem;
+  color: white;
+  -webkit-text-stroke: 3px black;
+  paint-order: stroke fill;
+  font-weight: bold;
+  padding: 0.5rem;
+  line-height: 1.1;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+table {
+  width: 90vmin;
+  height: 90vmin;
+  margin: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td {
+  border: 2px solid #2e4e1e;
+  aspect-ratio: 1 / 1;
+  width: calc(90vmin / 5); /* 5×5なら */
+  height: calc(90vmin / 5);
+  position: relative;
+  background-color: #ccc;
+}
+
+.free-cell {
+  background-image: url("rainbowranbu.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f5f5dc;
+}
+
+.cell-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.cell-input {
+  width: 85%;
+  height: 85%;
+  box-sizing: border-box;
+  font-size: 2.5vmin;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  resize: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.suggestions {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  max-height: 50vmin;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 999;
+  display: none;
+  font-size: 2vmin;
+}
+
+.suggestions div {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.suggestions div:hover {
+  background-color: #eee;
+}
+
+.cell-text-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cell-text {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vmin;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.button-container {
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: max-content;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2e4e1e;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- セル内の選択用ボタン --- */
+.cell-select-btn {
+  width: 90%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  color: #333;
+  font-size: 2.2vmin;
+  cursor: pointer;
+  padding: 2px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  border-radius: 4px;
+}
+.cell-select-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  width: 80%;
+  max-width: 400px;
+  max-height: 80vh;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-search {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 50vh;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.modal-item {
+  padding: 0.7rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.modal-item:hover {
+  background-color: #f0f0f0;
+}
+
+.modal-close-btn {
+  padding: 0.5rem;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
